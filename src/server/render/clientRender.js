@@ -23,9 +23,15 @@ const html = () => {
 
 const clientRender = () => {
   return async (ctx, next) => {
-    const htmlTemplate = html();
-    ctx.body = htmlTemplate;
-    await next();
+    const path = ctx.request.path.split('.');
+
+    if (path.length > 1) {
+      await next()
+    }
+    else {
+      const htmlTemplate = html();
+      ctx.body = htmlTemplate;
+    }
   }
 }
 
