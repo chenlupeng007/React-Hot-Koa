@@ -4,7 +4,7 @@ import styles from './About.scss'
 
 const About = ({ isMobile }) => (
   <h1 className={styles.About}>
-    About - {isMobile ? 'mobile': 'desktop'} Page
+    About - {isMobile ? 'mobile': 'desktop'}
   </h1>
 )
 

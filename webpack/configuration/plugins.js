@@ -1,19 +1,19 @@
-import HtmlWebPackPlugin from 'html-webpack-plugin';
+// import HtmlWebPackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import WebpackNotifierPlugin from 'webpack-notifier';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import WebpackNotifierPlugin from 'webpack-notifier';
 import CompressionPlugin from 'compression-webpack-plugin'
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const titleName = 'My-App';
-const templatePath = './src/index.html';
+// const titleName = 'My-App';
+// const templatePath = './src/index.html';
 
 const plugins = [
-  new HtmlWebPackPlugin({
-    title: titleName,
-    template: templatePath,
-  })
+  // new HtmlWebPackPlugin({
+  //   title: titleName,
+  //   template: templatePath,
+  // })
 ];
 
 if (isProduction) {
@@ -32,9 +32,9 @@ if (isProduction) {
 } else {
   plugins.push(
     // new BundleAnalyzerPlugin(),
-    new WebpackNotifierPlugin({
-      title: titleName
-    })
+    // new WebpackNotifierPlugin({
+    //   title: titleName
+    // })
   );
 }
 
