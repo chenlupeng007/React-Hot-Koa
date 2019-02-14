@@ -11,6 +11,7 @@ export default {
     },
     {
       test: /\.scss$/,
+      exclude: /node_modules/,
       use: [
         {
           loader: isProduction ? MiniCssExtractPlugin.loader : 'style-loader'
@@ -26,6 +27,21 @@ export default {
         {
           loader: 'sass-loader'
         }
+      ]
+    },
+    {
+      test: /\.css$/,
+      include: /node_modules/,
+      use: [
+        {
+          loader: isProduction ? MiniCssExtractPlugin.loader : 'style-loader'
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            sourceMap: !isProduction
+          }
+        },
       ]
     }
   ]

@@ -1,17 +1,21 @@
-import React, { Component }from 'react'
+import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader/root'
 
-import About from '@components/About';
 import Home from '@components/Home';
 
-const App = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/about" component={About} />
-    </Switch>
-  </BrowserRouter>
-)
+import store from '@client/store'
 
-export default hot(App)
+export default hot(() => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home} />
+      </Switch>
+    </BrowserRouter>
+  </Provider>
+))
+
+
+

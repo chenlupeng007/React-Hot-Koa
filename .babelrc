@@ -4,6 +4,25 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "libraryDirectory": "es",
+        "style": "css"
+      }
+    ],
+    ["module-resolver", {
+      "root": ["./"],
+      "alias": {
+        "@client": "./src/client/",
+        "@server": "./src/server/",
+        "@components": "./src/client/components",
+        "@reducers": "./src/client/reducers",
+        "@store": ".src/client/store",
+        "@webpack": "./webpack.config.babel.js",
+      }
+    }],
   ]
 }

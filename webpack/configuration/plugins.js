@@ -1,20 +1,12 @@
-// import HtmlWebPackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-// import WebpackNotifierPlugin from 'webpack-notifier';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CompressionPlugin from 'compression-webpack-plugin'
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV == 'production';
 
-// const titleName = 'My-App';
-// const templatePath = './src/index.html';
+const isAnalyzer = process.env.ANALYZER === 'true';
 
-const plugins = [
-  // new HtmlWebPackPlugin({
-  //   title: titleName,
-  //   template: templatePath,
-  // })
-];
+const plugins = [];
 
 if (isProduction) {
   plugins.push(
@@ -24,18 +16,15 @@ if (isProduction) {
     new CompressionPlugin({
       filename: '[path].gz[query]',
       algorithm: 'gzip',
-      test: /\.js$/,
+      test: /\.js$|\.css$|\.jsx|\.html$/,
       threshold: 10240,
       minRatio: 0.8
     })
   );
-} else {
+} else if (isAnalyzer) {
   plugins.push(
-    // new BundleAnalyzerPlugin(),
-    // new WebpackNotifierPlugin({
-    //   title: titleName
-    // })
+    new BundleAnalyzerPlugin()
   );
 }
 
-export default plugins;
+export default plugins

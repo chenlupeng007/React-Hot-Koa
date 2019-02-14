@@ -1,7 +1,10 @@
 const isProduction = process.env.NODE_ENV === 'production';
 
 const html = () => {
-  const link = isProduction ? `<link rel="stylesheet" href="css/main.css" />` : '';
+  const Path = isProduction ? 'app/' : '';
+  const link = isProduction ? `<link rel="stylesheet" href="${Path}css/main.css" />` : '';
+  const linkVendor = isProduction ? `<link rel="stylesheet" href="${Path}css/vendor.css" />` : '';
+
 
   return `
     <!DOCTYPE html>
@@ -10,12 +13,13 @@ const html = () => {
         <meta charset="utf-8">
         <title>App Name</title>
         ${link}
+        ${linkVendor}
       </head>
       <body>
         <div id="root"></div>
 
-        <script src="vendor.js"></script>
-        <script src="main.js"></script>
+        <script src="${Path}vendor.js"></script>
+        <script src="${Path}main.js"></script>
       </body>
     </html>
   `;

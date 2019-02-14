@@ -1,12 +1,14 @@
 # React-Hot-Koa
-Hot reloading starter project with React and Koa2.
+Hot reloading starter project with React with Ant Design and Koa2.
 
-Update Time: 2019.1
+Update Time: 2019.2
 
 ### Dependencies
 - Webpack 4.x
 - Babel 7.x
 - React 16.x
+- React-router-dom 4.x
+- Ant Design 3.x
 - React Hot Loader 4.x
 - Koa-webpack 5.x
 - Koa 2.x
@@ -35,5 +37,5 @@ $ yarn start
 
 ### Production
 ```
-$ yarn run start-prod
+$ yarn start-prod
 ```

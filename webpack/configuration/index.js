@@ -3,9 +3,9 @@ import entry from './entry'
 import mode from './mode'
 import module from './module';
 import optimization from './optimization';
+import output from './ouput'
 import plugins from './plugins';
 import resolve from './resolve';
-import output from './ouput'
 
 export {
   devtool,
