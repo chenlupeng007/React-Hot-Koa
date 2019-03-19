@@ -1,14 +1,23 @@
-import { MemberEntity } from "./model";
-import Axios, { AxiosResponse } from "axios";
+import { MemberEntity } from './model';
+import Axios, { AxiosResponse } from 'axios';
 
-const gitHubURL = "https://api.github.com";
+const gitHubURL = 'https://api.github.com';
 const gitHubMembersUrl = `${gitHubURL}/orgs/lemoncode/members`;
+
+const mapMemberListApiToModel = ({
+  data,
+}: AxiosResponse<any[]>): MemberEntity[] =>
+  data.map(gitHubMember => ({
+    id: gitHubMember.id,
+    login: gitHubMember.login,
+    avatar_url: gitHubMember.avatar_url,
+  }));
 
 export const getMembersCollection = (): Promise<MemberEntity[]> => {
   const promise = new Promise<MemberEntity[]>((resolve, reject) => {
     try {
       Axios.get<MemberEntity[]>(gitHubMembersUrl).then(response =>
-        resolve(mapMemberListApiToModel(response))
+        resolve(mapMemberListApiToModel(response)),
       );
     } catch (ex) {
       reject(ex);
@@ -17,12 +26,3 @@ export const getMembersCollection = (): Promise<MemberEntity[]> => {
 
   return promise;
 };
-
-const mapMemberListApiToModel = ({
-  data
-}: AxiosResponse<any[]>): MemberEntity[] =>
-  data.map(gitHubMember => ({
-    id: gitHubMember.id,
-    login: gitHubMember.login,
-    avatar_url: gitHubMember.avatar_url
-  }));

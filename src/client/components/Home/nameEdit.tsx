@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface Props {
   initialUserName: string;
@@ -13,7 +13,7 @@ const NameEditComponent = (props: Props) => {
     props.onEditingNameUpdated(e.target.value);
   };
 
-  const onNameSubmit = (event: any): any => {
+  const onNameSubmit = () => {
     props.onNameUpdated();
   };
 
@@ -21,12 +21,11 @@ const NameEditComponent = (props: Props) => {
     <>
       <label>Update name:</label>
       <input value={props.editingName} onChange={onChange} />
-      <button
-        onClick={onNameSubmit}
-        disabled={props.disabled}
-      >Change</button>
+      <button onClick={onNameSubmit} disabled={props.disabled}>
+        Change
+      </button>
     </>
   );
 };
 
-export default NameEditComponent
+export default NameEditComponent;

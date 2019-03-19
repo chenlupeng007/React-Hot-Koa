@@ -1,24 +1,18 @@
 import React from 'react';
-// import NameEditComponent from './nameEdit';
-import SidebarComponent from './Sidebar'
-import MemberTableComponent from './MemberTable'
-import { Color } from "./model";
+import NameEditComponent from './nameEdit';
+import SidebarComponent from './Sidebar';
+import MemberTableComponent from './MemberTable';
 
 const Home = () => {
-  const [name, setName] = React.useState("defaultUserName");
-  const [editingName, setEditingName] = React.useState("defaultUserName");
-  const [color, setColor] = React.useState<Color>({
-    red: 20,
-    green: 40,
-    blue: 180
-  });
+  const [name, setName] = React.useState('defaultUserName');
+  const [editingName, setEditingName] = React.useState('defaultUserName');
 
   const [isVisible, setVisible] = React.useState(false);
 
   const loadUsername = () => {
     setTimeout(() => {
-      setName("name from async call");
-      setEditingName("name from async call");
+      setName('name from async call');
+      setEditingName('name from async call');
     }, 500);
   };
 
@@ -49,18 +43,18 @@ const Home = () => {
         </ul>
       </SidebarComponent>
       <MemberTableComponent />
-      {/* <NameEditComponent
+      <NameEditComponent
         initialUserName={name}
         editingName={editingName}
         onNameUpdated={setUsernameState}
         onEditingNameUpdated={setEditingName}
-        disabled={editingName === "" || editingName === name}
-      /> */}
-      <div style={{ float: "right" }}>
+        disabled={editingName === '' || editingName === name}
+      />
+      <div style={{ float: 'right' }}>
         <button onClick={() => setVisible(!isVisible)}>Toggle Sidebar</button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

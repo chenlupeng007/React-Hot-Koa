@@ -1,6 +1,6 @@
-import React from "react";
-import { MemberEntity } from "./model";
-import { getMembersCollection } from "./api";
+import React from 'react';
+import { MemberEntity } from './model';
+import { getMembersCollection } from './api';
 
 const useMemberCollection = () => {
   const [memberCollection, setMemberCollection] = React.useState<
@@ -8,8 +8,8 @@ const useMemberCollection = () => {
   >([]);
 
   const loadMemberCollection = async () => {
-    const memberCollection = await getMembersCollection()
-    setMemberCollection(memberCollection)
+    const memberCollection = await getMembersCollection();
+    setMemberCollection(memberCollection);
   };
 
   return { memberCollection, loadMemberCollection };
@@ -45,7 +45,7 @@ const MemberTableComponent = () => {
 const MemberRow = ({ member }: { member: MemberEntity }) => (
   <tr>
     <td>
-      <img src={member.avatar_url} style={{ maxWidth: "10rem" }} />
+      <img src={member.avatar_url} style={{ maxWidth: '10rem' }} />
     </td>
     <td>
       <span>{member.id}</span>
@@ -56,4 +56,4 @@ const MemberRow = ({ member }: { member: MemberEntity }) => (
   </tr>
 );
 
-export default MemberTableComponent
+export default MemberTableComponent;

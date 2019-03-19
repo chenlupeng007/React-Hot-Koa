@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import classNames from './Sidebar.scss'
+import classNames from './Sidebar.scss';
 
 interface Props {
   isVisible: boolean;
 }
 
 const divStyle = (props: Props): React.CSSProperties => ({
-  width: props.isVisible ? "23rem" : "0rem"
+  width: props.isVisible ? '23rem' : '0rem',
 });
 
 const SidebarComponent: React.StatelessComponent<Props> = props => (
@@ -16,4 +16,4 @@ const SidebarComponent: React.StatelessComponent<Props> = props => (
   </div>
 );
 
-export default SidebarComponent
+export default SidebarComponent;
