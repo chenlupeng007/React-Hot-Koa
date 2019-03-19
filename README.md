@@ -1,12 +1,12 @@
 # React-Hot-Koa
 Hot reloading starter project with React with Ant Design and Koa2.
 
-Update Time: 2019.2
+Update Time: 2019.3
 
 ### Dependencies
 - Webpack 4.x
 - Babel 7.x
-- React 16.x
+- React 16.8
 - React-router-dom 4.x
 - Ant Design 3.x
 - React Hot Loader 4.x
