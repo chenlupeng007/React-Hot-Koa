@@ -6,6 +6,7 @@ Update Time: 2019.3
 ### Dependencies
 - Webpack 4.x
 - Babel 7.x
+- TypeScript 3.x
 - React 16.8
 - React-router-dom 4.x
 - Ant Design 3.x
@@ -38,4 +39,9 @@ $ yarn start
 ### Production
 ```
 $ yarn start-prod
+```
+
+### Static Check
+```
+$ yarn check-types
 ```

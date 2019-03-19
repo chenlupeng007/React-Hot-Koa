@@ -1,10 +1,10 @@
 {
   "presets": [
     "@babel/preset-env",
-    "@babel/preset-react"
+    "@babel/preset-react",
+    "@babel/typescript"
   ],
   "plugins": [
-    "react-hot-loader/babel",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -18,17 +18,6 @@
         "libraryDirectory": "es",
         "style": "css"
       }
-    ],
-    ["module-resolver", {
-      "root": ["./"],
-      "alias": {
-        "@client": "./src/client/",
-        "@server": "./src/server/",
-        "@components": "./src/client/components",
-        "@reducers": "./src/client/reducers",
-        "@store": ".src/client/store",
-        "@webpack": "./webpack.config.babel.js",
-      }
-    }],
+    ]
   ]
 }

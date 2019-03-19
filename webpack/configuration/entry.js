@@ -1,3 +1,3 @@
-const entry = ['./src/client/index.jsx'];
+const entry = ['./src/client/index.tsx'];
 
 export default entry;

@@ -1,7 +1,7 @@
 import koaWebpack from 'koa-webpack'
 import router from './router'
 
-import config from '@webpack'
+import config from '../../webpack.config.babel'
 
 export default async (app) => {
   const middleware = await koaWebpack({ config })

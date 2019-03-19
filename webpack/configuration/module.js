@@ -5,7 +5,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default {
   rules: [
     {
-      test: /\.(js|jsx)$/,
+      test: /\.(ts|js)x?$/,
       exclude: /node_modules/,
       use: 'babel-loader'
     },
@@ -15,6 +15,9 @@ export default {
       use: [
         {
           loader: isProduction ? MiniCssExtractPlugin.loader : 'style-loader'
+        },
+        {
+          loader: 'css-modules-typescript-loader'
         },
         {
           loader: 'css-loader',
