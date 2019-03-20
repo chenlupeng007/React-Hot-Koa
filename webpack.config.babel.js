@@ -6,7 +6,7 @@ import {
   optimization,
   output,
   plugins,
-  resolve
+  resolve,
 } from './webpack/configuration';
 
 export default {
@@ -17,5 +17,5 @@ export default {
   plugins,
   optimization,
   output,
-  resolve
+  resolve,
 };

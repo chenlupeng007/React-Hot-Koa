@@ -1,10 +1,14 @@
+import { Context } from 'koa';
 const isProduction = process.env.NODE_ENV === 'production';
 
 const html = () => {
   const Path = isProduction ? 'app/' : '';
-  const link = isProduction ? `<link rel="stylesheet" href="${Path}css/main.css" />` : '';
-  const linkVendor = isProduction ? `<link rel="stylesheet" href="${Path}css/vendor.css" />` : '';
-
+  const link = isProduction
+    ? `<link rel="stylesheet" href="${Path}css/main.css" />`
+    : '';
+  const linkVendor = isProduction
+    ? `<link rel="stylesheet" href="${Path}css/vendor.css" />`
+    : '';
 
   return `
     <!DOCTYPE html>
@@ -23,20 +27,19 @@ const html = () => {
       </body>
     </html>
   `;
-}
+};
 
 const clientRender = () => {
-  return async (ctx, next) => {
+  return async (ctx: Context, next: () => Promise<any>) => {
     const path = ctx.request.path.split('.');
 
     if (path.length > 1) {
-      await next()
-    }
-    else {
+      await next();
+    } else {
       const htmlTemplate = html();
       ctx.body = htmlTemplate;
     }
-  }
-}
+  };
+};
 
 export default clientRender;
