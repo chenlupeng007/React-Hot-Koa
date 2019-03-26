@@ -1,11 +1,11 @@
-import koaWebpack from 'koa-webpack';
-import router from './router';
+import koaWebpack from 'koa-webpack'
+import router from './router'
 
-import config from '../../webpack.config.babel';
+import config from '../../webpack.config.babel'
 
-export default async app => {
-  const middleware = await koaWebpack({ config });
+export default async (app) => {
+  const middleware = await koaWebpack({ config })
 
-  app.use(middleware);
-  app.use(router.routes()).use(router.allowedMethods());
-};
+  app.use(middleware)
+  app.use(router.routes()).use(router.allowedMethods())
+}

@@ -1,13 +1,24 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Home from './components/Home';
+import React, { useState } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Header from './components/Header';
+import Routes from './routes';
+import { StoreContext, IStore } from './contexts';
+import './index.scss';
 
-const App = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={Home} />
-    </Switch>
-  </BrowserRouter>
-);
+const App = () => {
+  const [login, setLogin] = useState(false);
+  const store: IStore = {
+    login,
+    setLogin,
+  };
+  return (
+    <StoreContext.Provider value={{ ...store }}>
+      <BrowserRouter>
+        <Header />
+        <Routes />
+      </BrowserRouter>
+    </StoreContext.Provider>
+  );
+};
 
 export default App;

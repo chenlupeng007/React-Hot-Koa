@@ -1,0 +1,26 @@
+.container {
+  text-align: center;
+  padding: 5px;
+  margin-top: 165px;
+  font-size: large;
+  border: solid 2px blue;
+  height: 2000px;
+  p {
+    border: solid 2px yellow;
+    margin-bottom: 5px;
+  }
+}
+
+.list {
+  list-style: none;
+  padding: 5px 5px 0px 5px;
+  border: solid 2px red;
+}
+
+.item {
+  margin-bottom: 5px;
+  border: solid 2px green;
+  a {
+    text-decoration: none;
+  }
+}

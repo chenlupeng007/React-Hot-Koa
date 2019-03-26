@@ -1,8 +1,7 @@
-import { Context } from 'koa';
 const isProduction = process.env.NODE_ENV === 'production';
 
 const html = () => {
-  const Path = isProduction ? 'app/' : '';
+  const Path = isProduction ? '/app/' : '/';
   const link = isProduction
     ? `<link rel="stylesheet" href="${Path}css/main.css" />`
     : '';
@@ -30,9 +29,8 @@ const html = () => {
 };
 
 const clientRender = () => {
-  return async (ctx: Context, next: () => Promise<any>) => {
+  return async (ctx, next) => {
     const path = ctx.request.path.split('.');
-
     if (path.length > 1) {
       await next();
     } else {

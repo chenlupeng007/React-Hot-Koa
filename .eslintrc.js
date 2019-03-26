@@ -16,7 +16,6 @@ module.exports = {
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off"
   },
   settings: {
     react: {
