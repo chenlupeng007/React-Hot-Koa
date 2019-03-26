@@ -6,7 +6,7 @@
   ],
   "plugins": [
     "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-class-properties",
+    // "@babel/plugin-proposal-class-properties",
     [
       "@babel/plugin-transform-runtime",
       {
@@ -19,6 +19,22 @@
         "libraryName": "antd",
         "libraryDirectory": "es",
         "style": "css"
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./"
+        ],
+        "alias": {
+          "api": "./src/client/api",
+          "contexts": "./src/client/contexts",
+          "components": "./src/client/components",
+          "interfaces": "./src/client/interfaces",
+          "pages": "./src/client/pages",
+          "routes": "./src/client/routes"
+        }
       }
     ]
   ]

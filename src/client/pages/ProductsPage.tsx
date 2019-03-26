@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Route } from 'react-router-dom';
 import useReactRouter from 'use-react-router';
-import Products from '../components/Products';
-import Product from '../components/Product';
-import { products as data } from './ProductsData';
-import { IProduct } from '../interfaces';
+import Products from 'components/Products';
+import Product from 'components/Product';
+import { IProduct } from 'interfaces';
+import { getProducts } from 'api';
 
 const ProductsPage = () => {
   const { match } = useReactRouter();
   const [products, setProducts] = useState<IProduct[]>([]);
+  const fetchData = async () => {
+    const products = await getProducts();
+    setProducts(products);
+  };
   useEffect(() => {
-    setTimeout(() => {
-      setProducts(data);
-    }, 200);
+    fetchData();
   }, []);
   return (
     <>

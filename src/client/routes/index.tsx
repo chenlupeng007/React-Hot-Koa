@@ -1,12 +1,12 @@
 import React, { useContext, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import LoginPage from '../pages/LoginPage';
-import ProductsPage from '../pages/ProductsPage';
-import NotFoundPage from '../pages/NotFoundPage';
-import { StoreContext } from '../contexts';
+import LoginPage from 'pages/LoginPage';
+import ProductsPage from 'pages/ProductsPage';
+import NotFoundPage from 'pages/NotFoundPage';
+import { StoreContext } from 'contexts';
 import useReactRouter from 'use-react-router';
 import { CSSTransition } from 'react-transition-group';
-const AdminPage = React.lazy(() => import('../pages/AdminPage'));
+const AdminPage = React.lazy(() => import('pages/AdminPage'));
 const Home = () => <Redirect to="/products" />;
 const Routes: React.SFC = () => {
   const { login } = useContext(StoreContext);

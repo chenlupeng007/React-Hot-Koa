@@ -16,6 +16,15 @@
     "isolatedModules": true,
     // Import non-ES modules as default imports.
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "api": ["src/client/api"],
+      "contexts": ["src/client/contexts"],
+      "components/*": ["src/client/components/*"],
+      "interfaces": ["src/client/interfaces"],
+      "pages/*": ["src/client/pages/*"],
+      "routes": ["src/client/routes"]
+    },
     "jsx": "react",
   },
   "include": [

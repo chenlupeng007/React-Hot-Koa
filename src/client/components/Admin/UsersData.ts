@@ -1,4 +1,4 @@
-import { IUser } from '../../interfaces';
+import { IUser } from 'interfaces';
 
 export const adminUsersData: IUser[] = [
   { id: 1, name: 'Fred', isAdmin: true },

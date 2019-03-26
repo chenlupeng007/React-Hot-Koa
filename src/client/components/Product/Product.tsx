@@ -1,42 +1,45 @@
-import React, { useState } from 'react';
-import useReactRouter from 'use-react-router';
-import { Prompt } from 'react-router-dom';
+import * as React from 'react';
+import Tabs from './Tabs';
 import styles from './styles.scss';
-import { IProduct } from '../../interfaces';
+import { IProduct } from 'interfaces';
+interface IProps {
+  product: IProduct;
+  inBasket: boolean;
+  onAddToBasket: () => void;
+}
 
-const Product: React.SFC<{ products: IProduct[] }> = props => {
-  const { products } = props;
-  const { match } = useReactRouter<{ id: string }>();
-  const id: number = parseInt(match.params.id, 10);
-  const product = products.find(p => p.id === id);
-
-  const [added, setAdded] = useState(false);
-  const handleAddClick = () => {
-    setAdded(true);
-  };
-
+const Product = (props: IProps) => {
+  const { product, inBasket, onAddToBasket } = props;
+  const handleAddClick = onAddToBasket;
   return (
-    <div className={styles.container}>
-      <Prompt
-        when={!added}
-        message={() => 'Are you sure you leave without buying this product?'}
-      />
-      {product ? (
-        <React.Fragment>
-          <h1>{product.name}</h1>
+    <React.Fragment>
+      <h1>{product.name}</h1>
+      <Tabs>
+        <Tabs.Tab
+          name="Description"
+          initialActive={true}
+          heading={() => <b>Description</b>}
+        >
           <p>{product.description}</p>
-          <p className="price">
-            {new Intl.NumberFormat('en-US', {
-              currency: 'USD',
-              style: 'currency',
-            }).format(product.price)}
-          </p>
-          {!added && <button onClick={handleAddClick}>Add to basket</button>}
-        </React.Fragment>
-      ) : (
-        <p>Loding...</p>
-      )}
-    </div>
+        </Tabs.Tab>
+        <Tabs.Tab name="Reviews" heading={() => 'Reviews'}>
+          <ul className={styles.reviews}>
+            {product.reviews.map(review => (
+              <li key={review.reviewer} className={styles.item}>
+                <i>"{review.comment}"</i> - {review.reviewer}
+              </li>
+            ))}
+          </ul>
+        </Tabs.Tab>
+      </Tabs>
+      <p className="price">
+        {new Intl.NumberFormat('en-US', {
+          currency: 'USD',
+          style: 'currency',
+        }).format(product.price)}
+      </p>
+      {!inBasket && <button onClick={handleAddClick}>Add to basket</button>}
+    </React.Fragment>
   );
 };
 

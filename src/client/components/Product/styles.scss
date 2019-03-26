@@ -3,3 +3,31 @@
   margin-top: 165px;
   text-align: center;
 }
+
+.reviews {
+  list-style: none;
+  padding: 0px;
+}
+
+.item {
+  display: block;
+  padding: 8px 0px;
+}
+
+.tabs {
+  list-style: none;
+  padding: 0;
+  li {
+    display: inline-block;
+    padding: 5px;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+  }
+  li:focus {
+    outline: none;
+  }
+}
+
+.active {
+  border-bottom: #222 solid 2px;
+}

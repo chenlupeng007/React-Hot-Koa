@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import useReactRouter from 'use-react-router';
 import styles from './styles.scss';
-import { IProduct } from '../../interfaces';
+import { IProduct } from 'interfaces';
 
 const isShow: (product: IProduct, search: string) => boolean = (
   product,

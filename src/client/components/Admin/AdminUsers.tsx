@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavLink, Route } from 'react-router-dom';
 import useReactRouter from 'use-react-router';
 import { adminUsersData } from './UsersData';
-import { IUser } from '../../interfaces';
+import { IUser } from 'interfaces';
 import styles from './styles.scss';
 
 const AdminUsers = () => {

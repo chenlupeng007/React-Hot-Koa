@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header';
 import Routes from './routes';
-import { StoreContext, IStore } from './contexts';
+import { StoreContext, IStore } from 'contexts';
 import './index.scss';
 
 const App = () => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import useReactRouter from 'use-react-router';
-import { StoreContext } from '../../contexts';
+import { StoreContext } from 'contexts';
 
 const LoginPage: React.SFC = () => {
   const { login, setLogin } = React.useContext(StoreContext);
